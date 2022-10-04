@@ -12,6 +12,7 @@ function App() {
   const [countCategory, setCountCategory] = useState([]);
   const [countProduct, setCountProduct] = useState([]);
   const [listProduct, setListProduct] = useState([]);
+  const [listCategory, setListCategory] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/api/dashboard/product")
@@ -57,6 +58,17 @@ function App() {
       .catch(() => {});
   }, []);
 
+  useEffect(() => {
+    fetch("http://localhost:3000/api/dashboard/listCategory")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setListCategory(data.json.countByCategory);
+      })
+        .catch(() => {});
+  }, []);
+
   return (
     <>
       <div id="content-wrapper" className="d-flex flex-column">
@@ -84,7 +96,13 @@ function App() {
               <div className="row">
                 <LastProduct name="Ultimo producto" />
                 <LastUser name="Ultimo Usuario" />
-                <PanelCategory name="Panel Categoria" />
+                {
+                  listCategory.map((element) => {
+                    {console.log(element)}
+                    return <PanelCategory name="Panel Categoria" category={element} />
+                     
+                  })
+                }
               </div>
               <div className="row-product">
                 <h2>Listado de productos</h2>

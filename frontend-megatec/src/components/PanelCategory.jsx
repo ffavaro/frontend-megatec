@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 
 function PanelCategory(props) {
-    
     return(
         <>
            <div className="col-md-4 mb-4">
@@ -16,10 +15,10 @@ function PanelCategory(props) {
                   {props.name}
                 </div>
                 <div className="h5 mb-0 font-weight-bold text-gray-800">
-                  Nombre:         
+                  Nombre:    {props.category.name}     
                 </div>
                 <div className="h5 mb-0 font-weight-bold text-gray-800">
-                  Email:                
+                  Email:    {props.category.countProduct}             
                  </div>
               </div>
               <div className="col-auto">
