@@ -6,6 +6,9 @@ import TotalesComponents from "./components/TotalesComponents";
 import ListProduct from "./components/ListProduct";
 import LastUser from "./components/LastUser";
 import PanelCategory from "./components/PanelCategory";
+import Header from "./components/Header";
+import Banner from "./components/banner"
+
 
 function App() {
   const [countUser, setCountUser] = useState([]);
@@ -71,15 +74,17 @@ function App() {
 
   return (
     <>
+    <Header/>
       <div id="content-wrapper" className="d-flex flex-column">
         {/*<!-- Main Content -->*/}
         <div id="content">
           <React.Fragment>
             <div className="container-fluid">
               <div className="Row">
+              
                 <h1 className="h3 mb-0 text-gray-800">Dashboard</h1>
               </div>
-
+              
               {/*<!-- Content Row Movies-->*/}
               <div className="row">
                 <TotalesComponents
@@ -104,12 +109,14 @@ function App() {
                   })
                 }
               </div>
+              <div >
+              </div>
+              <div> <h1>Listado de productos</h1></div>
               <div className="row-product">
-                <h2>Listado de productos</h2>
                 {
                   listProduct.map((element) => {
                     {console.log(element)}
-                    return <ListProduct product={element}/>
+                    return <div className="product"><ListProduct product={element}/></div>
                   })
                 }
               </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-
+import('./Last.css')
 function LastProduct(props) {
   const [product, setProduct] = useState([]);
 
@@ -15,7 +15,7 @@ function LastProduct(props) {
 
   return (
     <>
-      <div className="col-md-4 mb-4">
+      <div className="ultimo">
         <div className={`card border-left-success shadow h-100 py-2`}>
           <div className="card-body">
             <div className="row no-gutters align-items-center">
@@ -23,7 +23,7 @@ function LastProduct(props) {
                 <div
                   className={`text-xs font-weight-bold text-success text-uppercase mb-1`}
                 >
-                  {props.name}
+                <h2>{props.name}</h2>
                 </div>
                 <div className="h5 mb-0 font-weight-bold text-gray-800">
                 Nombre: {product.name}
