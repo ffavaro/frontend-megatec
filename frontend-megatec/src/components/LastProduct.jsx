@@ -8,7 +8,7 @@ function LastProduct(props) {
     fetch("http://localhost:3000/api/dashboard/lastProduct")
     .then((response) => { return response.json()})
     .then((data) => {
-      setProduct(data[0])
+      setProduct(data)
     })
     .catch(() => {})
   },[])
@@ -25,14 +25,21 @@ function LastProduct(props) {
                 >
                 <h2>{props.name}</h2>
                 </div>
+               
                 <div className="h5 mb-0 font-weight-bold text-gray-800">
                 Nombre: {product.name}
                 </div>
                 <div className="h5 mb-0 font-weight-bold text-gray-800">
-                Descripcion: {product.description}
+                 Precio: {product.price}
                 </div>
                 <div className="h5 mb-0 font-weight-bold text-gray-800">
-                 Precio: {product.price} - Stock: {product.discount}% - Stock: {product.stock}
+                  Descuento: {product.discount}% 
+                </div>
+                <div className="h5 mb-0 font-weight-bold text-gray-800">
+                 Stock: {product.stock}
+                </div>
+                <div className="h5 mb-0 font-weight-bold text-gray-800">
+                  <img src={product.image} alt="logo" width="50%" />
                 </div>
               </div>
               <div className="col-auto">

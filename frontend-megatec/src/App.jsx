@@ -51,12 +51,12 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/product/")
+    fetch("http://localhost:3000/api/dashboard/listProduct")
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        setListProduct(data.json.products);
+        setListProduct(data);
       })
       .catch(() => {});
   }, []);
@@ -81,8 +81,7 @@ function App() {
           <React.Fragment>
             <div className="container-fluid">
               <div className="Row">
-              
-                <h1 className="h3 mb-0 text-gray-800">Dashboard</h1>
+                <h1 className="h3 mb-0 text-gray-800" style={{color:"white"}}>Dashboard</h1>
               </div>
               
               {/*<!-- Content Row Movies-->*/}
@@ -102,21 +101,21 @@ function App() {
                 <LastProduct name="Ultimo producto" />
                 <LastUser name="Ultimo Usuario" />
                 {
-                  listCategory.map((element) => {
-                    {console.log(element)}
-                    return <PanelCategory name="Panel Categoria" category={element} />
+                  listCategory.map((element, index) => {
+                    return <PanelCategory key={index} name="Panel Categoria" category={element} />
                      
                   })
                 }
               </div>
               <div >
               </div>
-              <div> <h1>Listado de productos</h1></div>
+              <div> <h1 style={{color:"white"}}> Listado de productos</h1></div>
               <div className="row-product">
                 {
-                  listProduct.map((element) => {
-                    {console.log(element)}
-                    return <div className="product"><ListProduct product={element}/></div>
+                  listProduct.map((element, index) => {
+                    return (<div className="product">
+                      <ListProduct product={element} key={index}/>
+                      </div>)
                   })
                 }
               </div>

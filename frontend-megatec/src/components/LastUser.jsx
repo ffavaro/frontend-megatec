@@ -10,7 +10,7 @@ function LastUser(props) {
         return response.json();
       })
       .then((data) => {
-        setUser(data[0]);
+        setUser(data.data[0]);
       })
       .catch(() => {});
   }, []);
@@ -28,10 +28,13 @@ function LastUser(props) {
                 <h2>{props.name}</h2>
                 </div>
                 <div className="h5 mb-0 font-weight-bold text-gray-800">
-                  Nombre:   {user.firstname + " " + user.lastname}      
+                  Nombre:   {user.name}      
                 </div>
                 <div className="h5 mb-0 font-weight-bold text-gray-800">
                   Email: {user.email}
+                </div>
+                <div className="h5 mb-0 font-weight-bold text-gray-800">
+                  <img src={user.avatar} alt="avatar" width="80" /> 
                 </div>
               </div>
               <div className="col-auto">

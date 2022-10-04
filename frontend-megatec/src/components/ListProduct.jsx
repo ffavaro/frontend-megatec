@@ -15,14 +15,19 @@ function ListProduct(props) {
                   {props.name}
                 </div>
                 <div className="h5 mb-0 font-weight-bold text-gray-800">
-                  {console.log(props)}
                 Nombre: {props.product.name}
                 </div>
                 <div className="h5 mb-0 font-weight-bold text-gray-800">
-                Descripcion: {props.product.description}
+                 Precio: {props.product.price} 
                 </div>
                 <div className="h5 mb-0 font-weight-bold text-gray-800">
-                 Precio: {props.product.price} - Stock: {props.product.discount}% - Stock: {props.product.stock}
+                 Descuento: {props.product.discount}%
+                </div>
+                <div className="h5 mb-0 font-weight-bold text-gray-800">
+                  Stock: {props.product.stock}
+                </div>
+                <div className="h5 mb-0 font-weight-bold text-gray-800">
+                  <img src={props.product.image} alt="logo" width="30%" />
                 </div>
               </div>
               <div className="col-auto">

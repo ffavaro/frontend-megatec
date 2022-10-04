@@ -18,7 +18,7 @@ function PanelCategory(props) {
                   Nombre:    {props.category.name}     
                 </div>
                 <div className="h5 mb-0 font-weight-bold text-gray-800">
-                  Email:    {props.category.countProduct}             
+                  Cantidad de productos:    {props.category.countProduct}             
                  </div>
               </div>
               <div className="col-auto">
